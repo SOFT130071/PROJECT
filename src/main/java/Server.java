@@ -15,7 +15,6 @@ public class Server {
     @SuppressWarnings("all")
     public static void main(String[] args) throws IOException {
         ServerSocket server = new ServerSocket(PORT);
-
         ExecutorService threadPool = Executors.newFixedThreadPool(100);
 
         while (true) {
