@@ -7,7 +7,9 @@ import util.StringUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class UserDAOImpl implements UserDAO {
@@ -19,15 +21,13 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public int append(User user) {
         if (con != null) try {
-            String sql = "INSERT INTO user VALUES(?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO `mooc`.`users` (`username`, `nickname`, `email`, `logged`, `password`) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement ppst = con.prepareStatement(sql);
-            ppst.setInt(1, user.getUid());
-            ppst.setString(2, user.getUsername());
-            ppst.setString(3, user.getNickname());
-            ppst.setString(4, user.getEmail());
-            ppst.setString(5, user.getPassword());
-            ppst.setInt(6, user.getType());
-            ppst.setInt(7, user.getLogged());
+            ppst.setString(1, user.getUsername());
+            ppst.setString(2, user.getNickname());
+            ppst.setString(3, user.getEmail());
+            ppst.setString(4, user.getPassword());
+            ppst.setString(5, user.getLogged());
             return ppst.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -38,7 +38,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public int delete(int id) {
         if (con != null) try {
-            String sql = "DELETE FROM user WHERE uid=?";
+            String sql = "DELETE FROM users WHERE uid=?";
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setString(1, String.valueOf(id));
             return pstm.executeUpdate();
@@ -51,15 +51,14 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public int modify(User user) {
         if (con != null) try {
-            String sql = "UPDATE user SET uid=?, username=?, nickname=?, email=?, password=?, type=?, logged=?";
+            String sql = "UPDATE users SET username=?, nickname=?, email=?, password=?, logged=? WHERE uid=?";
             PreparedStatement ppst = con.prepareStatement(sql);
-            ppst.setInt(1, user.getUid());
-            ppst.setString(2, user.getUsername());
-            ppst.setString(3, user.getNickname());
-            ppst.setString(4, user.getEmail());
-            ppst.setString(5, user.getPassword());
-            ppst.setInt(6, user.getType());
-            ppst.setInt(7, user.getLogged());
+            ppst.setString(6, user.getUid());
+            ppst.setString(1, user.getUsername());
+            ppst.setString(2, user.getNickname());
+            ppst.setString(3, user.getEmail());
+            ppst.setString(4, user.getPassword());
+            ppst.setString(5, user.getLogged());
             return ppst.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -68,7 +67,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public Map<String, String> infoList(User user) {
+    public List<Map<String, String>> infoList(User user) {
         if (con != null) try {
             StringBuilder stringBuilder = new StringBuilder("SELECT * FROM user");
             if (StringUtil.isNotEmpty(String.valueOf(user.getUid()))) {
@@ -96,12 +95,7 @@ public class UserDAOImpl implements UserDAO {
                 stringBuilder.append(user.getPassword());
                 stringBuilder.append("\"");
             }
-            if (StringUtil.isNotEmpty(String.valueOf(user.getType()))) {
-                stringBuilder.append(" AND type=\"");
-                stringBuilder.append(user.getType());
-                stringBuilder.append("\"");
-            }
-            if (StringUtil.isNotEmpty(String.valueOf(user.getLogged()))) {
+            if (StringUtil.isNotEmpty(user.getLogged())) {
                 stringBuilder.append(" AND logged=\"");
                 stringBuilder.append(user.getLogged());
                 stringBuilder.append("\"");
@@ -111,16 +105,18 @@ public class UserDAOImpl implements UserDAO {
 
             ResultSet rs = pstm.executeQuery();
 
-            Map<String, String> map = new HashMap<>();
+            List<Map<String, String>> ret = new ArrayList<>();
             while (rs.next()) {
+                Map<String, String> map = new HashMap<>();
                 map.put("uid", rs.getString("uid"));
                 map.put("username", rs.getString("username"));
                 map.put("nickname", rs.getString("nickname"));
                 map.put("password", rs.getString("password"));
-                map.put("type", rs.getString("type"));
-                map.put("logfed", rs.getString("logfed"));
+                map.put("email", rs.getString("email"));
+                map.put("logged", rs.getString("logged"));
+                ret.add(map);
             }
-            return map;
+            return ret;
         } catch (Exception e) {
             e.printStackTrace();
         }

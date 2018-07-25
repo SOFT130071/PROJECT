@@ -2,6 +2,7 @@ package dao_impl;
 
 import entity.User;
 
+import java.util.List;
 import java.util.Map;
 
 public interface UserDAO {
@@ -11,5 +12,5 @@ public interface UserDAO {
 
     int modify(User user);
 
-    Map<String, String> infoList(User user);
+    List<Map<String, String>> infoList(User user);
 }

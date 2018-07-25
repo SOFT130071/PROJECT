@@ -9,7 +9,7 @@ import util.annotation.SQLString;
 public class User {
 
     @SQLInteger(constraint = @Constraints(primaryKey = true, unique = true))
-    private int uid;
+    private String uid;
     @SQLString(constraint = @Constraints(unique = true))
     private String username;
     @SQLString
@@ -19,16 +19,12 @@ public class User {
     @SQLString
     private String password;
     @SQLInteger
-    private int type;
-    @SQLInteger
-    private int logged;
+    private String logged;
 
     public User(String... uid_username_nickname_email_password_type_logged) {
         switch (uid_username_nickname_email_password_type_logged.length) {
-            case 7:
-                logged = Integer.parseInt(uid_username_nickname_email_password_type_logged[6]);
             case 6:
-                type = Integer.parseInt(uid_username_nickname_email_password_type_logged[5]);
+                logged = uid_username_nickname_email_password_type_logged[5];
             case 5:
                 password = uid_username_nickname_email_password_type_logged[4];
             case 4:
@@ -38,13 +34,13 @@ public class User {
             case 2:
                 username = uid_username_nickname_email_password_type_logged[1];
             case 1:
-                uid = Integer.parseInt(uid_username_nickname_email_password_type_logged[0]);
+                uid = uid_username_nickname_email_password_type_logged[0];
             default:
                 break;
         }
     }
 
-    public int getUid() {
+    public String getUid() {
         return uid;
     }
 
@@ -64,15 +60,11 @@ public class User {
         return password;
     }
 
-    public int getType() {
-        return type;
-    }
-
-    public int getLogged() {
+    public String getLogged() {
         return logged;
     }
 
-    public void setUid(int uid) {
+    public void setUid(String uid) {
         this.uid = uid;
     }
 
@@ -92,11 +84,7 @@ public class User {
         this.password = password;
     }
 
-    public void setType(int type) {
-        this.type = type;
-    }
-
-    public void setLoged(int logged) {
+    public void setLoged(String logged) {
         this.logged = logged;
     }
 }

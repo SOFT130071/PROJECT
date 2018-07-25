@@ -8,4 +8,17 @@
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="myConfigurationMap">
+      <map>
+        <entry key="$PROJECT_DIR$/src/main">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="svn://10.132.141.50:3691/arch-2018-svn/15302010049/IdeaProjects/Mooc/src/main" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
 </project>
