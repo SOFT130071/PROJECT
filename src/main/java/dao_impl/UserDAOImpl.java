@@ -13,13 +13,13 @@ import java.util.List;
 import java.util.Map;
 
 public class UserDAOImpl implements UserDAO {
-    private Connection con = SqlUtil.createCon();
 
     UserDAOImpl() {
     }
 
     @Override
     public int append(User user) {
+        Connection con = SqlUtil.createCon();
         if (con != null) try {
             String sql = "INSERT INTO `mooc`.`users` (`username`, `nickname`, `email`, `logged`, `password`) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement ppst = con.prepareStatement(sql);
@@ -28,7 +28,11 @@ public class UserDAOImpl implements UserDAO {
             ppst.setString(3, user.getEmail());
             ppst.setString(4, user.getPassword());
             ppst.setString(5, user.getLogged());
-            return ppst.executeUpdate();
+
+            int ret = ppst.executeUpdate();
+            SqlUtil.closeCon(con);
+
+            return ret;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -37,11 +41,16 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public int delete(int id) {
+        Connection con = SqlUtil.createCon();
         if (con != null) try {
             String sql = "DELETE FROM users WHERE uid=?";
             PreparedStatement pstm = con.prepareStatement(sql);
             pstm.setString(1, String.valueOf(id));
-            return pstm.executeUpdate();
+
+            int ret = pstm.executeUpdate();
+            SqlUtil.closeCon(con);
+
+            return ret;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -50,6 +59,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public int modify(User user) {
+        Connection con = SqlUtil.createCon();
         if (con != null) try {
             String sql = "UPDATE users SET username=?, nickname=?, email=?, password=?, logged=? WHERE uid=?";
             PreparedStatement ppst = con.prepareStatement(sql);
@@ -59,7 +69,11 @@ public class UserDAOImpl implements UserDAO {
             ppst.setString(3, user.getEmail());
             ppst.setString(4, user.getPassword());
             ppst.setString(5, user.getLogged());
-            return ppst.executeUpdate();
+
+            int ret = ppst.executeUpdate();
+            SqlUtil.closeCon(con);
+
+            return ret;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -68,6 +82,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public List<Map<String, String>> infoList(User user) {
+        Connection con = SqlUtil.createCon();
         if (con != null) try {
             StringBuilder stringBuilder = new StringBuilder("SELECT * FROM user");
             if (StringUtil.isNotEmpty(String.valueOf(user.getUid()))) {
@@ -104,6 +119,8 @@ public class UserDAOImpl implements UserDAO {
             PreparedStatement pstm = con.prepareStatement(stringBuilder.toString().replaceFirst("AND", "WHERE"));
 
             ResultSet rs = pstm.executeQuery();
+
+            SqlUtil.closeCon(con);
 
             List<Map<String, String>> ret = new ArrayList<>();
             while (rs.next()) {

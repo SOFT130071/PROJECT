@@ -60,4 +60,6 @@ public class UserServiceImpl implements UserService {
         User user = new User("", username);
         return userDAO.infoList(user).size() != 0;
     }
+
+
 }
