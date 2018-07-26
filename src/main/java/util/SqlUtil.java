@@ -7,7 +7,7 @@ public class SqlUtil {
     private static boolean mutex = false;
 
     @SuppressWarnings("all")
-    public static Connection createCon() {
+    public synchronized static Connection createCon() {
         while (mutex) {
             // wait for mutex
         }
