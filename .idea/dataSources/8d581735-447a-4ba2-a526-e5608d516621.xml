@@ -13,7 +13,7 @@
     <schema id="3" parent="1" name="mooc">
       <Current>1</Current>
       <Visible>1</Visible>
-      <Collation>utf8_general_ci</Collation>
+      <Collation>latin1_swedish_ci</Collation>
     </schema>
     <schema id="4" parent="1" name="mysql">
       <Collation>latin1_swedish_ci</Collation>
@@ -919,31 +919,31 @@
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
     <table id="231" parent="3" name="choose_course">
-      <Collation>latin1_swedish_ci</Collation>
+      <Collation>utf8_general_ci</Collation>
     </table>
     <table id="232" parent="3" name="course_pages">
-      <Collation>latin1_swedish_ci</Collation>
+      <Collation>utf8_general_ci</Collation>
     </table>
     <table id="233" parent="3" name="courses">
-      <Collation>latin1_swedish_ci</Collation>
+      <Collation>utf8_general_ci</Collation>
     </table>
     <table id="234" parent="3" name="homework">
-      <Collation>latin1_swedish_ci</Collation>
+      <Collation>utf8_general_ci</Collation>
     </table>
     <table id="235" parent="3" name="homework_submit">
-      <Collation>latin1_swedish_ci</Collation>
+      <Collation>utf8_general_ci</Collation>
     </table>
     <table id="236" parent="3" name="resources">
-      <Collation>latin1_swedish_ci</Collation>
+      <Collation>utf8_general_ci</Collation>
     </table>
     <table id="237" parent="3" name="statistics">
-      <Collation>latin1_swedish_ci</Collation>
+      <Collation>utf8_general_ci</Collation>
     </table>
     <table id="238" parent="3" name="talk">
-      <Collation>latin1_swedish_ci</Collation>
+      <Collation>utf8_general_ci</Collation>
     </table>
     <table id="239" parent="3" name="users">
-      <Collation>latin1_swedish_ci</Collation>
+      <Collation>utf8_general_ci</Collation>
     </table>
     <column id="240" parent="231" name="c_id">
       <Position>1</Position>

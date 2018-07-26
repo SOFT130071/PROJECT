@@ -65,20 +65,20 @@ public class User {
     @SQLInteger
     private String logged;
 
-    public User(String... uid_username_nickname_email_password_type_logged) {
-        switch (uid_username_nickname_email_password_type_logged.length) {
+    public User(String... uid_username_nickname_email_password_logged) {
+        switch (uid_username_nickname_email_password_logged.length) {
             case 6:
-                logged = uid_username_nickname_email_password_type_logged[5];
+                logged = uid_username_nickname_email_password_logged[5];
             case 5:
-                password = uid_username_nickname_email_password_type_logged[4];
+                password = uid_username_nickname_email_password_logged[4];
             case 4:
-                email = uid_username_nickname_email_password_type_logged[3];
+                email = uid_username_nickname_email_password_logged[3];
             case 3:
-                nickname = uid_username_nickname_email_password_type_logged[2];
+                nickname = uid_username_nickname_email_password_logged[2];
             case 2:
-                username = uid_username_nickname_email_password_type_logged[1];
+                username = uid_username_nickname_email_password_logged[1];
             case 1:
-                uid = uid_username_nickname_email_password_type_logged[0];
+                uid = uid_username_nickname_email_password_logged[0];
             default:
                 break;
         }

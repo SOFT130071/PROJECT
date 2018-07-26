@@ -20,8 +20,9 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public int append(User user) {
         Connection con = SqlUtil.createCon();
+        if ("undefined".equals(user.getUsername())) return -1;
         if (con != null) try {
-            String sql = "INSERT INTO `mooc`.`users` (`username`, `nickname`, `email`, `logged`, `password`) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO `mooc`.`users` (`username`, `nickname`, `email`, `password`, `logged`) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement ppst = con.prepareStatement(sql);
             ppst.setString(1, user.getUsername());
             ppst.setString(2, user.getNickname());
@@ -84,7 +85,7 @@ public class UserDAOImpl implements UserDAO {
     public List<Map<String, String>> infoList(User user) {
         Connection con = SqlUtil.createCon();
         if (con != null) try {
-            StringBuilder stringBuilder = new StringBuilder("SELECT * FROM user");
+            StringBuilder stringBuilder = new StringBuilder("SELECT * FROM users");
             if (StringUtil.isNotEmpty(String.valueOf(user.getUid()))) {
                 stringBuilder.append(" AND uid=\"");
                 stringBuilder.append(user.getUid());
@@ -120,8 +121,6 @@ public class UserDAOImpl implements UserDAO {
 
             ResultSet rs = pstm.executeQuery();
 
-            SqlUtil.closeCon(con);
-
             List<Map<String, String>> ret = new ArrayList<>();
             while (rs.next()) {
                 Map<String, String> map = new HashMap<>();
@@ -133,6 +132,7 @@ public class UserDAOImpl implements UserDAO {
                 map.put("logged", rs.getString("logged"));
                 ret.add(map);
             }
+            SqlUtil.closeCon(con);
             return ret;
         } catch (Exception e) {
             e.printStackTrace();

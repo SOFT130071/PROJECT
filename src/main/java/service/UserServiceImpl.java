@@ -33,11 +33,11 @@ public class UserServiceImpl implements UserService {
         boolean hasThisUser = hasThisUser(username);
         if (!hasThisUser) return 0x010101;
 
-        User user = new User("", username, "", password);
+        User user = new User("", username, "", "", password);
         List<Map<String, String>> list = userDAO.infoList(user);
         if (list.size() == 0) return 0x010102;
 
-        user = new User(list.get(0).get("uid"), username, "", "", password, "", "1");
+        user = new User(list.get(0).get("uid"), username, list.get(0).get("nickname"), list.get(0).get("email"), password, "1");
         int code = userDAO.modify(user);
 
         return code == -1 ? 0x010103 : 0x010100;
@@ -48,12 +48,26 @@ public class UserServiceImpl implements UserService {
         String username = jsonObject.get("username").getAsString();
         String password = jsonObject.get("password").getAsString();
         String email = jsonObject.get("email").getAsString();
-        int type = jsonObject.get("type").getAsInt();
         String nickname = jsonObject.get("nickname").getAsString();
 
         if (hasThisUser(username)) return 0x010201;
 
-        return userDAO.append(new User("", username, nickname, email, password, String.valueOf(type), "0")) == -1 ? 0x010202 : 0x010200;
+        return userDAO.append(new User("", username, nickname, email, password, "0")) == -1 ? 0x010202 : 0x010200;
+    }
+
+    @Override
+    public synchronized int logout() {
+        String username = jsonObject.get("username").getAsString();
+        if (!hasThisUser(username)) return 0x010104;
+
+        User user = new User("", username);
+        List<Map<String, String>> list = userDAO.infoList(user);
+        if (list.size() == 0) return 0x010102;
+
+        user = new User(list.get(0).get("uid"), username, list.get(0).get("nickname"), list.get(0).get("email"), list.get(0).get("password"), "0");
+        int code = userDAO.modify(user);
+
+        return code == -1 ? 0x010107 : 0x010106;
     }
 
     private synchronized boolean hasThisUser(String username) {

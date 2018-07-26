@@ -16,6 +16,10 @@ public class CodesUtil {
                 return "Not logged!";
             case 0x010105:
                 return "Logged!";
+            case 0x010106:
+                return "Logout success!";
+            case 0x010107:
+                return "Logout failed!";
             case 0x010201:
                 return "User exist!";
             case 0x010202:
