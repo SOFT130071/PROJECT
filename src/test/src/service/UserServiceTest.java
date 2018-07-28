@@ -3,10 +3,13 @@ package service;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.junit.Test;
+import org.skyscreamer.jsonassert.JSONAssert;
+import util.SqlUtil;
 
 import static org.junit.Assert.assertEquals;
 
 public class UserServiceTest {
+
     @Test
     public void testNoUsernameLogged() {
         String str = "" +
@@ -109,5 +112,28 @@ public class UserServiceTest {
         UserService userService = ServiceFactory.getUserServiceInstance(jsonObject);
 
         assertEquals(0x010106, userService.logout());
+    }
+
+    @Test
+    public void testGetInfo() throws Exception {
+        new SqlUtil();
+        String str = "" +
+                "{" +
+                "   username: ronny" +
+                "}";
+        JsonObject jsonObject = new JsonParser().parse(str).getAsJsonObject();
+        UserService userService = ServiceFactory.getUserServiceInstance(jsonObject);
+        String ret = userService.getUserInfo().toString();
+
+        String expect = "" +
+                "{" +
+                "   uid: '7'," +
+                "   username: ronny," +
+                "   nickname: veronica," +
+                "   email: asdfasdfasd@asdds.cn," +
+                "   logged: '0'" +
+                "}";
+
+        JSONAssert.assertEquals(expect, ret, false);
     }
 }

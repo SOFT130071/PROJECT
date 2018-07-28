@@ -31,7 +31,7 @@ public class UserDAOImpl implements UserDAO {
             ppst.setString(5, user.getLogged());
 
             int ret = ppst.executeUpdate();
-            SqlUtil.closeCon(con);
+            SqlUtil.closeCon();
 
             return ret;
         } catch (Exception e) {
@@ -49,7 +49,7 @@ public class UserDAOImpl implements UserDAO {
             pstm.setString(1, String.valueOf(id));
 
             int ret = pstm.executeUpdate();
-            SqlUtil.closeCon(con);
+            SqlUtil.closeCon();
 
             return ret;
         } catch (Exception e) {
@@ -72,7 +72,7 @@ public class UserDAOImpl implements UserDAO {
             ppst.setString(5, user.getLogged());
 
             int ret = ppst.executeUpdate();
-            SqlUtil.closeCon(con);
+            SqlUtil.closeCon();
 
             return ret;
         } catch (Exception e) {
@@ -132,7 +132,7 @@ public class UserDAOImpl implements UserDAO {
                 map.put("logged", rs.getString("logged"));
                 ret.add(map);
             }
-            SqlUtil.closeCon(con);
+            SqlUtil.closeCon();
             return ret;
         } catch (Exception e) {
             e.printStackTrace();

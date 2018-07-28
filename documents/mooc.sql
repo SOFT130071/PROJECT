@@ -53,6 +53,7 @@ CREATE TABLE `course_pages` (
   `c_id` int(20) NOT NULL,
   `number` text NOT NULL,
   `title` text NOT NULL,
+  `link` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `course_pages.c_id` (`c_id`),
   CONSTRAINT `course_pages.c_id` FOREIGN KEY (`c_id`) REFERENCES `courses` (`id`)

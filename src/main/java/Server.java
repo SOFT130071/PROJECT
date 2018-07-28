@@ -1,6 +1,7 @@
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import service.ServiceFactory;
+import util.SqlUtil;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,6 +17,8 @@ public class Server {
     public static void main(String[] args) throws IOException {
         ServerSocket server = new ServerSocket(PORT);
         ExecutorService threadPool = Executors.newFixedThreadPool(100);
+
+        new SqlUtil();
 
         while (true) {
             Socket socket = server.accept();

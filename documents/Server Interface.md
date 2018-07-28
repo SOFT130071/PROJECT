@@ -49,8 +49,7 @@
 |number|该知识点在该课程中的编号|
 |title|此节课程标题|
 |content|内容|
-|video|UTB视频URL，以空格隔开，存入前先转义|
-|ppt|PPT的URL，以空格隔开，存入前先转义|
+|link|资源的URL，以空格隔开，存入前先转义|
 
 ### 选课总表 choose_course
 |名称|描述|

@@ -40,7 +40,9 @@ public class UserServiceImpl implements UserService {
         user = new User(list.get(0).get("uid"), username, list.get(0).get("nickname"), list.get(0).get("email"), password, "1");
         int code = userDAO.modify(user);
 
-        return code == -1 ? 0x010103 : 0x010100;
+        if (code == -1) return 0x010103;
+
+        return Integer.parseInt(list.get(0).get("uid"));
     }
 
     @Override
@@ -68,6 +70,26 @@ public class UserServiceImpl implements UserService {
         int code = userDAO.modify(user);
 
         return code == -1 ? 0x010107 : 0x010106;
+    }
+
+    @Override
+    public synchronized JsonObject getUserInfo() {
+        User user = new User("", jsonObject.get("username").getAsString());
+        List<Map<String, String>> list = userDAO.infoList(user);
+
+        JsonObject jsonObject = new JsonObject();
+
+        if (list == null) return jsonObject;
+
+        for (Map<String, String> map : list) {
+            jsonObject.addProperty("uid", map.get("uid"));
+            jsonObject.addProperty("username", map.get("username"));
+            jsonObject.addProperty("nickname", map.get("nickname"));
+            jsonObject.addProperty("email", map.get("email"));
+            jsonObject.addProperty("logged", map.get("logged"));
+        }
+
+        return jsonObject;
     }
 
     private synchronized boolean hasThisUser(String username) {

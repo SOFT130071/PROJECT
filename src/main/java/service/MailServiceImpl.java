@@ -8,7 +8,7 @@ import javax.mail.internet.MimeMessage;
 import java.util.Date;
 import java.util.Properties;
 
-public class MailServiceImpl {
+public class MailServiceImpl implements MailService {
     private Transport ts;
     private Session session;
     private final String sender = "soft130071";
@@ -30,6 +30,7 @@ public class MailServiceImpl {
         }
     }
 
+    @Override
     public synchronized int sendMsg(InternetAddress addr, String subject, String content) {
         try {
             MimeMessage msg = new MimeMessage(session);
