@@ -18,14 +18,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public synchronized int logged() {
-        String username = jsonObject.get("username").getAsString();
-        if (!hasThisUser(username)) return 0x010104; // not logged in local
-
-        return Integer.parseInt(userDAO.infoList(new User("", username)).get(0).get("logged")) == 1 ? 0x010105 : 0x010104;
-    }
-
-    @Override
     public synchronized int log() {
         String username = jsonObject.get("username").getAsString();
         String password = jsonObject.get("password").getAsString();

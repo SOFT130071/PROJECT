@@ -1,4 +1,75 @@
-#player {
-    width: 100%;
+html, body {
     height: 100%;
+
+}
+
+#player {
+    height: 100%;
+    width: 100%;
+}
+
+#right {
+    position: fixed;
+    right: 0;
+    height: 100%;
+}
+
+#nav-tab {
+    position: fixed;
+    right: 30em;
+    vertical-align: top;
+    height: 3.6em;
+    width: 2em;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: aliceblue;
+    opacity: 0.5;
+    display: inline-block;
+    padding-top: 1.2em;
+    text-align: center;
+}
+
+#nav-tab:hover, #nav-top-tab:hover {
+    cursor: pointer;
+}
+
+#nav-lower, #nav-upper {
+    padding: 1em;
+    vertical-align: top;
+    background-color: aliceblue;
+    width: 15em;
+    height: 100%;
+    display: inline-block;
+    overflow: scroll;
+}
+
+
+#nav-lower {
+    opacity: 0.5;
+}
+
+#nav-upper {
+    opacity: 0.8;
+}
+
+#right ul li {
+    padding: 0.5em;
+    font-size: large;
+}
+
+#right ul li:hover {
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+#cp-title {
+    font-size: x-large;
+    font-weight: bold;
+    color: darkblue;
+    padding: 0.5em;
+}
+
+#cp-content {
+    color: darkblue;
+    padding: 0.5em;
 }

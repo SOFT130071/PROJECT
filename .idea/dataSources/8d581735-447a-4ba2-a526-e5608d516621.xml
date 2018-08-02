@@ -970,12 +970,16 @@
       <RefSchemaName>mooc</RefSchemaName>
       <RefTableName>courses</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <foreign-key id="245" parent="231" name="choose_course.s_id">
       <ColNames>s_id</ColNames>
       <RefSchemaName>mooc</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>uid</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <column id="246" parent="232" name="id">
       <Position>1</Position>
@@ -1021,6 +1025,8 @@
       <RefSchemaName>mooc</RefSchemaName>
       <RefTableName>courses</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <column id="254" parent="233" name="id">
       <Position>1</Position>
@@ -1066,6 +1072,8 @@
       <RefSchemaName>mooc</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>uid</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <column id="262" parent="234" name="id">
       <Position>1</Position>
@@ -1116,6 +1124,8 @@
       <RefSchemaName>mooc</RefSchemaName>
       <RefTableName>courses</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <column id="271" parent="235" name="hw_id">
       <Position>1</Position>
@@ -1152,12 +1162,16 @@
       <RefSchemaName>mooc</RefSchemaName>
       <RefTableName>homework</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <foreign-key id="278" parent="235" name="homework_submit.s_id">
       <ColNames>s_id</ColNames>
       <RefSchemaName>mooc</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>uid</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <column id="279" parent="236" name="c_id">
       <Position>1</Position>
@@ -1186,6 +1200,8 @@
       <RefSchemaName>mooc</RefSchemaName>
       <RefTableName>courses</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <column id="284" parent="237" name="s_id">
       <Position>1</Position>
@@ -1222,18 +1238,24 @@
       <RefSchemaName>mooc</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>uid</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <foreign-key id="291" parent="237" name="statistics.c_id">
       <ColNames>c_id</ColNames>
       <RefSchemaName>mooc</RefSchemaName>
       <RefTableName>courses</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <foreign-key id="292" parent="237" name="statistics.cp_id">
       <ColNames>cp_id</ColNames>
       <RefSchemaName>mooc</RefSchemaName>
       <RefTableName>course_pages</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <column id="293" parent="238" name="id">
       <Position>1</Position>
@@ -1273,6 +1295,8 @@
       <RefSchemaName>mooc</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>uid</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <column id="300" parent="239" name="uid">
       <Position>1</Position>
@@ -1298,20 +1322,13 @@
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="304" parent="239" name="logged">
+    <column id="304" parent="239" name="password">
       <Position>5</Position>
-      <DataType>enum(&apos;0&apos;, &apos;1&apos;)|0e</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>&apos;0&apos;</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="305" parent="239" name="password">
-      <Position>6</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="306" parent="239" name="PRIMARY">
+    <key id="305" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>uid</ColNames>
       <Primary>1</Primary>

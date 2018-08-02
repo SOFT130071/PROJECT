@@ -7,12 +7,10 @@
 JSON 结构：
 ```
 {
-    'type': 'log',
-    'content':
-    {
-        'username': 'abcdefg',
-        'password': 'aaabbbccc'
-    }
+    'action': log,
+    'username': 'abcdefg',
+    'password': 'aaabbbccc'
+
 }
 ```
 #### 登录行为
@@ -28,11 +26,9 @@ JSON 结构：
 JSON 结构：
 ```
 {
-    'type': 'isLog',
-    'content':
-    {
-        'username': 'abcdefg'
-    }
+    'action': isLogged,
+    'username': 'abcdefg',
+    'password': 'aaabbbccc'
 }
 ```
 1. 获取 `username`，与数据库的进行匹配。

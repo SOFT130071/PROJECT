@@ -130,8 +130,7 @@ public class UserServiceTest {
                 "   uid: '7'," +
                 "   username: ronny," +
                 "   nickname: veronica," +
-                "   email: asdfasdfasd@asdds.cn," +
-                "   logged: '0'" +
+                "   email: asdfasdfasd@asdds.cn"
                 "}";
 
         JSONAssert.assertEquals(expect, ret, false);

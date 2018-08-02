@@ -62,23 +62,19 @@ public class User {
     private String email;
     @SQLString
     private String password;
-    @SQLInteger
-    private String logged;
 
-    public User(String... uid_username_nickname_email_password_logged) {
-        switch (uid_username_nickname_email_password_logged.length) {
-            case 6:
-                logged = uid_username_nickname_email_password_logged[5];
+    public User(String... uid_username_nickname_email_password) {
+        switch (uid_username_nickname_email_password.length) {
             case 5:
-                password = uid_username_nickname_email_password_logged[4];
+                password = uid_username_nickname_email_password[4];
             case 4:
-                email = uid_username_nickname_email_password_logged[3];
+                email = uid_username_nickname_email_password[3];
             case 3:
-                nickname = uid_username_nickname_email_password_logged[2];
+                nickname = uid_username_nickname_email_password[2];
             case 2:
-                username = uid_username_nickname_email_password_logged[1];
+                username = uid_username_nickname_email_password[1];
             case 1:
-                uid = uid_username_nickname_email_password_logged[0];
+                uid = uid_username_nickname_email_password[0];
             default:
                 break;
         }
@@ -104,10 +100,6 @@ public class User {
         return password;
     }
 
-    public String getLogged() {
-        return logged;
-    }
-
     public void setUid(String uid) {
         this.uid = uid;
     }
@@ -126,9 +118,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public void setLoged(String logged) {
-        this.logged = logged;
     }
 }

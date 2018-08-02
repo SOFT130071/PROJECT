@@ -45,7 +45,7 @@ public class Server {
                                 ret = new ServiceFactory().getUserServiceInstance(param).reg();
                                 break;
                             case "isLogged":
-                                ret = new ServiceFactory().getUserServiceInstance(param).logged();
+                                //ret = new ServiceFactory().getUserServiceInstance(param).logged();
 
 
                         }

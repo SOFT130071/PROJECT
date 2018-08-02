@@ -22,13 +22,12 @@ public class UserDAOImpl implements UserDAO {
         Connection con = SqlUtil.createCon();
         if ("undefined".equals(user.getUsername())) return -1;
         if (con != null) try {
-            String sql = "INSERT INTO `mooc`.`users` (`username`, `nickname`, `email`, `password`, `logged`) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO `mooc`.`users` (`username`, `nickname`, `email`, `password`) VALUES (?, ?, ?, ?)";
             PreparedStatement ppst = con.prepareStatement(sql);
             ppst.setString(1, user.getUsername());
             ppst.setString(2, user.getNickname());
             ppst.setString(3, user.getEmail());
             ppst.setString(4, user.getPassword());
-            ppst.setString(5, user.getLogged());
 
             int ret = ppst.executeUpdate();
             SqlUtil.closeCon();
@@ -62,14 +61,13 @@ public class UserDAOImpl implements UserDAO {
     public int modify(User user) {
         Connection con = SqlUtil.createCon();
         if (con != null) try {
-            String sql = "UPDATE users SET username=?, nickname=?, email=?, password=?, logged=? WHERE uid=?";
+            String sql = "UPDATE users SET username=?, nickname=?, email=?, password=? WHERE uid=?";
             PreparedStatement ppst = con.prepareStatement(sql);
-            ppst.setString(6, user.getUid());
+            ppst.setString(5, user.getUid());
             ppst.setString(1, user.getUsername());
             ppst.setString(2, user.getNickname());
             ppst.setString(3, user.getEmail());
             ppst.setString(4, user.getPassword());
-            ppst.setString(5, user.getLogged());
 
             int ret = ppst.executeUpdate();
             SqlUtil.closeCon();
@@ -111,11 +109,6 @@ public class UserDAOImpl implements UserDAO {
                 stringBuilder.append(user.getPassword());
                 stringBuilder.append("\"");
             }
-            if (StringUtil.isNotEmpty(user.getLogged())) {
-                stringBuilder.append(" AND logged=\"");
-                stringBuilder.append(user.getLogged());
-                stringBuilder.append("\"");
-            }
 
             PreparedStatement pstm = con.prepareStatement(stringBuilder.toString().replaceFirst("AND", "WHERE"));
 
@@ -129,7 +122,6 @@ public class UserDAOImpl implements UserDAO {
                 map.put("nickname", rs.getString("nickname"));
                 map.put("password", rs.getString("password"));
                 map.put("email", rs.getString("email"));
-                map.put("logged", rs.getString("logged"));
                 ret.add(map);
             }
             SqlUtil.closeCon();
