@@ -1,0 +1,16 @@
+body {
+    background-color: black;
+    color: aliceblue;
+    text-align: center;
+    margin: 0 10%;
+}
+
+input {
+    background-color: dimgrey;
+    border: 1px solid darkgrey;
+    border-radius: 10px;
+}
+
+li {
+    margin: 4em auto;
+}

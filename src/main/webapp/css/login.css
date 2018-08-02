@@ -1,0 +1,36 @@
+body {
+    background: black;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.card {
+    margin: 5%;
+    width: 90%;
+    height: 80%;
+    color: aliceblue;
+    background-color: dimgrey;
+    border-radius: 15px;
+}
+
+.card-body {
+    width: 70%;
+    padding: 5% auto;
+}
+
+.input-group, .btn {
+    margin-top: 2em;
+}
+
+h1 {
+    text-align: center;
+}
+
+.label {
+    margin-top: 5em;
+    padding: 0.5em 22em;
+}
+
+.alert {
+    color: red;
+}

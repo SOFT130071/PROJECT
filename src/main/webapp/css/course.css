@@ -1,0 +1,88 @@
+body {
+    background-color: black;
+    color: aliceblue;
+    margin: 0 5%;
+}
+
+.submit {
+    font-size: xx-small;
+    padding: 5px;
+}
+
+#uhlist {
+    margin-top: 0.5em;
+}
+
+#uhlist li {
+    display: inline-block;
+    margin: 1em;
+    vertical-align: top;
+    height: 15em;
+}
+
+input, textarea {
+    margin-bottom: 0.5em;
+    background-color: dimgray;
+    width: 100%;
+}
+
+.l-div {
+    width: 20em;
+    height: 100%;
+    border-radius: 5px;
+    border: 1px solid dimgray;
+    padding: 1em;
+    overflow-y: auto;
+}
+
+a {
+    color: aliceblue
+}
+
+hr {
+    margin: 3em 0;
+}
+
+.row {
+    margin-top: 2em;
+}
+
+a:hover {
+    color: lightcyan
+}
+
+#course-info figcaption {
+    margin: 1em 0;
+}
+
+#course-info img {
+    max-width: 100%;
+}
+
+ul li {
+    margin-top: 0.5em;
+}
+
+.list1 {
+    background-color: rgb(25, 25, 100);
+    width: 5em;
+    margin-right: 1em;
+}
+
+.list2 {
+    background-color: rgb(50, 50, 100);
+    width: 5em;
+    margin-right: 1em;
+}
+
+.list3 {
+    background-color: rgb(75, 75, 100);
+    width: 5em;
+    margin-right: 1em;
+}
+
+.list4 {
+    background-color: rgb(100, 100, 100);
+    width: 5em;
+    margin-right: 1em;
+}

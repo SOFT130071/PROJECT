@@ -3,11 +3,13 @@ package service;
 import com.google.gson.JsonObject;
 
 public interface UserService {
-    int logout();
+    JsonObject userInfo();
 
-    int log();
+    int login();
 
-    int reg();
+    int register();
 
-    JsonObject getUserInfo();
+    boolean hasUsername(String username);
+
+    int sendVerifyCode();
 }

@@ -1,47 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 package entity;
 
 import util.annotation.Constraints;
@@ -63,21 +19,27 @@ public class User {
     @SQLString
     private String password;
 
-    public User(String... uid_username_nickname_email_password) {
-        switch (uid_username_nickname_email_password.length) {
-            case 5:
-                password = uid_username_nickname_email_password[4];
-            case 4:
-                email = uid_username_nickname_email_password[3];
-            case 3:
-                nickname = uid_username_nickname_email_password[2];
-            case 2:
-                username = uid_username_nickname_email_password[1];
-            case 1:
-                uid = uid_username_nickname_email_password[0];
-            default:
-                break;
-        }
+    public User(String uid, String username, String nickname, String password, String email) {
+        this.uid = uid;
+        this.username = username;
+        this.nickname = nickname;
+        this.password = password;
+        this.email = email;
+    }
+
+    public User() {
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public String getUid() {
@@ -88,16 +50,16 @@ public class User {
         return username;
     }
 
-    public String getNickname() {
-        return nickname;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getEmail() {
-        return email;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
-    public String getPassword() {
-        return password;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setUid(String uid) {
@@ -106,17 +68,5 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }

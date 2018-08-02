@@ -40,12 +40,12 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public int delete(int id) {
+    public int delete(String id) {
         Connection con = SqlUtil.createCon();
         if (con != null) try {
             String sql = "DELETE FROM users WHERE uid=?";
             PreparedStatement pstm = con.prepareStatement(sql);
-            pstm.setString(1, String.valueOf(id));
+            pstm.setString(1, id);
 
             int ret = pstm.executeUpdate();
             SqlUtil.closeCon();

@@ -1,9 +1,9 @@
 var nav = false;
 var content = [];
-record(1, c_id, cp_id);
+record(sessionStorage.getItem("uid"), c_id, cp_id);
 
 $.post("Servlet", {
-        type: "page",
+        type: "pagelist",
         cid: c_id
     },
     function (data) {
@@ -12,7 +12,7 @@ $.post("Servlet", {
         for (let i in ret) {
             content[j] = [];
             let k = content[j];
-            k[0] = i; //number
+            k[0] = ret[i].number; //number
             k[1] = ret[i].pid; //cp_id
             k[2] = ret[i].title; //title
             k[3] = ret[i].content;
@@ -55,7 +55,7 @@ $.post("Servlet", {
     });
 
 function showCoursePageResourceList(id) {
-    record(1, c_id, id);
+    record(sessionStorage.getItem("uid"), c_id, id);
     let s;
     let u;
     for (let r = 0; r < content.length; r++) {

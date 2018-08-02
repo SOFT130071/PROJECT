@@ -1011,16 +1011,21 @@
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="251" parent="232" name="course_pages.c_id">
+    <column id="251" parent="232" name="content">
+      <Position>6</Position>
+      <DataType>text|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="252" parent="232" name="course_pages.c_id">
       <ColNames>c_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="252" parent="232" name="PRIMARY">
+    <key id="253" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="253" parent="232" name="course_pages.c_id">
+    <foreign-key id="254" parent="232" name="course_pages.c_id">
       <ColNames>c_id</ColNames>
       <RefSchemaName>mooc</RefSchemaName>
       <RefTableName>courses</RefTableName>
@@ -1028,46 +1033,46 @@
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="254" parent="233" name="id">
+    <column id="255" parent="233" name="id">
       <Position>1</Position>
       <DataType>int(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="255" parent="233" name="title">
+    <column id="256" parent="233" name="title">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="233" name="t_uid">
+    <column id="257" parent="233" name="t_uid">
       <Position>3</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="233" name="img">
+    <column id="258" parent="233" name="img">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="233" name="content">
+    <column id="259" parent="233" name="content">
       <Position>5</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="259" parent="233" name="courses.t_uid">
+    <index id="260" parent="233" name="courses.t_uid">
       <ColNames>t_uid</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="260" parent="233" name="PRIMARY">
+    <key id="261" parent="233" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="261" parent="233" name="courses.t_uid">
+    <foreign-key id="262" parent="233" name="courses.t_uid">
       <ColNames>t_uid</ColNames>
       <RefSchemaName>mooc</RefSchemaName>
       <RefTableName>users</RefTableName>
@@ -1075,51 +1080,51 @@
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="262" parent="234" name="id">
+    <column id="263" parent="234" name="id">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="234" name="c_id">
+    <column id="264" parent="234" name="c_id">
       <Position>2</Position>
       <DataType>int(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="234" name="beg_time">
+    <column id="265" parent="234" name="beg_time">
       <Position>3</Position>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="234" name="end_time">
+    <column id="266" parent="234" name="end_time">
       <Position>4</Position>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="266" parent="234" name="title">
+    <column id="267" parent="234" name="title">
       <Position>5</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="267" parent="234" name="content">
+    <column id="268" parent="234" name="content">
       <Position>6</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="268" parent="234" name="homework.c_id">
+    <index id="269" parent="234" name="homework.c_id">
       <ColNames>c_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="269" parent="234" name="PRIMARY">
+    <key id="270" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="270" parent="234" name="homework.c_id">
+    <foreign-key id="271" parent="234" name="homework.c_id">
       <ColNames>c_id</ColNames>
       <RefSchemaName>mooc</RefSchemaName>
       <RefTableName>courses</RefTableName>
@@ -1127,37 +1132,37 @@
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="271" parent="235" name="hw_id">
+    <column id="272" parent="235" name="hw_id">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="272" parent="235" name="s_id">
+    <column id="273" parent="235" name="s_id">
       <Position>2</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="273" parent="235" name="content">
+    <column id="274" parent="235" name="content">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="274" parent="235" name="score">
+    <column id="275" parent="235" name="score">
       <Position>4</Position>
       <DataType>int(5)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="275" parent="235" name="homework_submit.hw_id">
+    <index id="276" parent="235" name="homework_submit.hw_id">
       <ColNames>hw_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="276" parent="235" name="homework_submit.s_id">
+    <index id="277" parent="235" name="homework_submit.s_id">
       <ColNames>s_id</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="277" parent="235" name="homework_submit.hw_id">
+    <foreign-key id="278" parent="235" name="homework_submit.hw_id">
       <ColNames>hw_id</ColNames>
       <RefSchemaName>mooc</RefSchemaName>
       <RefTableName>homework</RefTableName>
@@ -1165,7 +1170,7 @@
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="278" parent="235" name="homework_submit.s_id">
+    <foreign-key id="279" parent="235" name="homework_submit.s_id">
       <ColNames>s_id</ColNames>
       <RefSchemaName>mooc</RefSchemaName>
       <RefTableName>users</RefTableName>
@@ -1173,29 +1178,29 @@
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="279" parent="236" name="c_id">
+    <column id="280" parent="236" name="c_id">
       <Position>1</Position>
       <DataType>int(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="280" parent="236" name="number">
+    <column id="281" parent="236" name="number">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="281" parent="236" name="content">
+    <column id="282" parent="236" name="content">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="282" parent="236" name="resources.c_id">
+    <index id="283" parent="236" name="resources.c_id">
       <ColNames>c_id</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="283" parent="236" name="resources.c_id">
+    <foreign-key id="284" parent="236" name="resources.c_id">
       <ColNames>c_id</ColNames>
       <RefSchemaName>mooc</RefSchemaName>
       <RefTableName>courses</RefTableName>
@@ -1203,37 +1208,37 @@
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="284" parent="237" name="s_id">
+    <column id="285" parent="237" name="s_id">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="237" name="c_id">
+    <column id="286" parent="237" name="c_id">
       <Position>2</Position>
       <DataType>int(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="237" name="cp_id">
+    <column id="287" parent="237" name="cp_id">
       <Position>3</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="287" parent="237" name="statistics.s_id">
+    <index id="288" parent="237" name="statistics.s_id">
       <ColNames>s_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="288" parent="237" name="statistics.c_id">
+    <index id="289" parent="237" name="statistics.c_id">
       <ColNames>c_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="289" parent="237" name="statistics.cp_id">
+    <index id="290" parent="237" name="statistics.cp_id">
       <ColNames>cp_id</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="290" parent="237" name="statistics.s_id">
+    <foreign-key id="291" parent="237" name="statistics.s_id">
       <ColNames>s_id</ColNames>
       <RefSchemaName>mooc</RefSchemaName>
       <RefTableName>users</RefTableName>
@@ -1241,7 +1246,7 @@
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="291" parent="237" name="statistics.c_id">
+    <foreign-key id="292" parent="237" name="statistics.c_id">
       <ColNames>c_id</ColNames>
       <RefSchemaName>mooc</RefSchemaName>
       <RefTableName>courses</RefTableName>
@@ -1249,7 +1254,7 @@
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="292" parent="237" name="statistics.cp_id">
+    <foreign-key id="293" parent="237" name="statistics.cp_id">
       <ColNames>cp_id</ColNames>
       <RefSchemaName>mooc</RefSchemaName>
       <RefTableName>course_pages</RefTableName>
@@ -1257,78 +1262,66 @@
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="293" parent="238" name="id">
+    <column id="294" parent="238" name="id">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="238" name="uid">
+    <column id="295" parent="238" name="username">
       <Position>2</Position>
-      <DataType>int(10)|0s</DataType>
+      <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="295" parent="238" name="content">
+    <column id="296" parent="238" name="content">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="296" parent="238" name="time">
+    <column id="297" parent="238" name="time">
       <Position>4</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="297" parent="238" name="talk.uid">
-      <ColNames>uid</ColNames>
-      <Type>btree</Type>
-    </index>
     <key id="298" parent="238" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="299" parent="238" name="talk.uid">
-      <ColNames>uid</ColNames>
-      <RefSchemaName>mooc</RefSchemaName>
-      <RefTableName>users</RefTableName>
-      <RefColNames>uid</RefColNames>
-      <OnUpdate>cascade</OnUpdate>
-      <OnDelete>cascade</OnDelete>
-    </foreign-key>
-    <column id="300" parent="239" name="uid">
+    <column id="299" parent="239" name="uid">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="239" name="username">
+    <column id="300" parent="239" name="username">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="302" parent="239" name="nickname">
+    <column id="301" parent="239" name="nickname">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="303" parent="239" name="email">
+    <column id="302" parent="239" name="email">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="304" parent="239" name="password">
+    <column id="303" parent="239" name="password">
       <Position>5</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="305" parent="239" name="PRIMARY">
+    <key id="304" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>uid</ColNames>
       <Primary>1</Primary>

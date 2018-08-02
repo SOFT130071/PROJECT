@@ -1,0 +1,58 @@
+body {
+    background-color: black;
+    color: aliceblue;
+    margin: 0 5%;
+}
+
+#kaike {
+    display: none;
+}
+
+#oooo {
+    display: none;
+}
+
+th, td {
+    width: 5em;
+}
+
+th {
+    font-weight: bold;
+    color: lightsteelblue;
+}
+
+#newcrs input, #newcrs textarea {
+    display: block;
+    background-color: dimgray;
+    width: 15em;
+    margin: 0.5em;
+}
+
+#figure {
+    display: none;
+    position: absolute;
+    z-index: 99;
+
+    margin: 10em auto;
+    padding: 2em;
+
+    width: 40em;
+    height: 13em;
+
+    background-color: dimgray;
+}
+
+#figure input {
+    margin-top: 1.5em;
+    width: 100%;
+}
+
+li {
+    margin: 1em 0;
+    font-size: large;
+}
+
+li div {
+    display: inline;
+    margin: 0 1em;
+}

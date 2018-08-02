@@ -4,10 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class SqlUtil {
-    private static Connection connection = null;
+    private static Connection connection = conn();
     private static boolean mutex = false;
 
-    public SqlUtil() {
+    private static Connection conn() {
         try {
             //TODO: 这个地方应该写成配置文件，但是我懒了
             String url = "jdbc:mysql://localhost:3306/mooc?useUnicode=true&characterEncoding=UTF-8";
@@ -16,17 +16,22 @@ public class SqlUtil {
             String driver = "com.mysql.jdbc.Driver";
 
             Class.forName(driver);
-            connection = DriverManager.getConnection(url, userName, password);
+            return DriverManager.getConnection(url, userName, password);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
 
-    @SuppressWarnings("all")
-    public synchronized static Connection createCon() {
+    public static Connection createCon() {
         while (mutex) {
-            // wait for mutex
+            try {
+                Thread.sleep(10);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+
         mutex = true;
         return connection;
     }
