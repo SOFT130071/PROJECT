@@ -55,7 +55,6 @@ public class Servlet extends HttpServlet {
                 pw.print(ServiceFactory.getDiscussionInstance(param).append());
                 break;
             case "courseinfo":
-                System.out.println(ServiceFactory.getCourseServiceInstance(param).doCourseInfo());
                 pw.print(ServiceFactory.getCourseServiceInstance(param).doCourseInfo());
                 break;
             case "resourcelist":

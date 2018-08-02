@@ -70,8 +70,8 @@ public class ChooseCourseDAOImpl implements ChooseCourseDAO {
             List<Map<String, String>> result = new ArrayList<>();
             while (re.next()) {
                 Map<String, String> map = new HashMap<>();
-                map.put("c_id", re.getString("c_id"));
-                map.put("s_id", re.getString("s_id"));
+                map.put("cid", re.getString("c_id"));
+                map.put("uid", re.getString("s_id"));
                 result.add(map);
             }
             return result;

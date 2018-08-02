@@ -26,7 +26,7 @@ public class SqlUtil {
     public static Connection createCon() {
         while (mutex) {
             try {
-                Thread.sleep(10);
+                Thread.sleep(100);
             } catch (Exception e) {
                 e.printStackTrace();
             }

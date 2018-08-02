@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: rgb(10, 10, 50);
     color: aliceblue;
     text-align: center;
     margin: 0 10%;
@@ -11,19 +11,19 @@ main {
 
 #ttext, #ctext, #ntext {
     width: 33.33%;
-    background-color: dimgray;
+    background-color: rgb(40, 40, 100);
     color: aliceblue;
 }
 
 .input-group-btn button {
-    background-color: dimgray;
+    background-color: rgb(40, 40, 100);
     color: aliceblue;
 }
 
 .li {
     list-style-type: none;
     margin: 2em auto;
-    background-color: rgb(30, 30, 30);
+    background-color: rgb(40, 40, 100);
     padding: 1em;
     border-radius: 5px;
 

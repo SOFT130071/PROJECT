@@ -20,7 +20,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: dimgrey;
+    background-color: rgb(40, 40, 100);
     opacity: 0.9;
     height: 2.8em;
 }

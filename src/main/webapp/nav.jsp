@@ -22,7 +22,8 @@
         location.reload();
     }
 </script>
-<nav id="nav-jsp-nav-top" style="display: block; width: 100%; height: 4em;background-color: dimgray; padding: 0.7em">
+<nav id="nav-jsp-nav-top"
+     style="display: block; width: 100%; height: 4em;background-color: rgb(40,40,100); padding: 0.7em">
     <div class="col-lg-3">
         <h4>
             欢迎来到 <a href="index.jsp" style="color:rgb(134, 187, 255)">MOOC</a>，<span id="nav-jsp-user">

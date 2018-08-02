@@ -34,8 +34,10 @@ public class UserDAOImpl implements UserDAO {
 
             return ret;
         } catch (Exception e) {
+            SqlUtil.closeCon();
             e.printStackTrace();
         }
+        SqlUtil.closeCon();
         return -1;
     }
 
@@ -52,8 +54,10 @@ public class UserDAOImpl implements UserDAO {
 
             return ret;
         } catch (Exception e) {
+            SqlUtil.closeCon();
             e.printStackTrace();
         }
+        SqlUtil.closeCon();
         return -1;
     }
 
@@ -74,8 +78,10 @@ public class UserDAOImpl implements UserDAO {
 
             return ret;
         } catch (Exception e) {
+            SqlUtil.closeCon();
             e.printStackTrace();
         }
+        SqlUtil.closeCon();
         return -1;
     }
 
@@ -127,8 +133,10 @@ public class UserDAOImpl implements UserDAO {
             SqlUtil.closeCon();
             return ret;
         } catch (Exception e) {
+            SqlUtil.closeCon();
             e.printStackTrace();
         }
+        SqlUtil.closeCon();
         return null;
     }
 }

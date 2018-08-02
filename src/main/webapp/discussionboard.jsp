@@ -5,6 +5,7 @@
   Time: 23:16
   To change this template use File | Settings | File Templates.
 --%>
+<!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -21,7 +22,7 @@
 <body>
 <%@ include file="nav.jsp" %>
 <div id="container">
-    <div class="panel panel-default">
+    <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">Discussion Board</h3>
         </div>

@@ -16,14 +16,15 @@ public class CoursePageDAOImpl implements CoursePageDAO {
     public int append(CoursePage course_pages) {
         Connection conn = SqlUtil.createCon();
         try {
-            String sql = "INSERT INTO `mooc`.`course_pages` (c_id,`number`,title,content,link) VALUES ('" +
+            String sql = "INSERT INTO `mooc`.`course_pages` (`c_id`,`number`,`title`,`content`,`link`) VALUES ('" +
                     course_pages.getC_id() + "','" + course_pages.getNumber() + "','" + course_pages.getTitle() + "','" +
                     course_pages.getContent() + "', ";
-            if (StringUtil.isNotEmpty(course_pages.getLink())) {
+            if (StringUtil.isEmpty(course_pages.getLink())) {
                 sql += null + ")";
             } else {
                 sql += "'" + course_pages.getLink() + "')";
             }
+            System.out.println(sql);
             PreparedStatement ppst = conn.prepareStatement(sql);
             int re = ppst.executeUpdate();
             SqlUtil.closeCon();

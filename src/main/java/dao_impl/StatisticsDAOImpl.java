@@ -71,9 +71,35 @@ public class StatisticsDAOImpl implements StatisticsDAO {
             List<Map<String, String>> result = new ArrayList<>();
             while (re.next()) {
                 Map<String, String> map = new HashMap<>();
-                map.put("count(cp_id)", re.getString("count(cp_id)"));
-                map.put("s_id", re.getString("s_id"));
+                map.put("count(pid)", re.getString("count(cp_id)"));
+                map.put("uid", re.getString("s_id"));
                 map.put("nickname", re.getString("nickname"));
+                result.add(map);
+            }
+            return result;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            SqlUtil.closeCon();
+            return null;
+        }
+    }
+
+    @Override
+    public List<Map<String, String>> infoList(String s_id, String c_id, String cp_id) {
+        Connection conn = SqlUtil.createCon();
+        try {
+            String sql = "select * from statistics where c_id=" + c_id + " and s_id=" + s_id + " and cp_id=" + cp_id + ";";
+
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet re = ps.executeQuery();
+            SqlUtil.closeCon();
+            List<Map<String, String>> result = new ArrayList<>();
+            while (re.next()) {
+                Map<String, String> map = new HashMap<>();
+                map.put("pid", re.getString("cp_id"));
+                map.put("uid", re.getString("s_id"));
+                map.put("cid", re.getString("c_id"));
                 result.add(map);
             }
             return result;

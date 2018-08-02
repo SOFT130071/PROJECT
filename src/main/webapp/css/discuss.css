@@ -1,5 +1,5 @@
 body {
-    background: black;
+    background: rgb(10, 10, 50);
 }
 
 #container {
@@ -7,8 +7,13 @@ body {
     width: 80%;
 }
 
+#nav-jsp-nav-top h4 {
+    color: white;
+}
+
 #input {
     margin: 10px 7.5%;
+    width: 85%;
 }
 
 #info {
@@ -23,8 +28,12 @@ body {
     margin-left: 7.5%;
 }
 
+.panel {
+    background-color: aliceblue;
+}
+
 .panel-body span {
-    color: grey;
+    color: blue;
     margin: 5px;
 }
 

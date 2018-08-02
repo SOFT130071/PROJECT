@@ -17,23 +17,25 @@ $.post("Servlet", {
             k[2] = ret[i].title; //title
             k[3] = ret[i].content;
             k[4] = [];
-            k[4] = ret[i].url.split(" ");
+            if (ret[i].url !== null) {
+                k[4] = ret[i].url.split(" ");
 
-            for (let q = 0; q < k[4].length; q++) {
-                let o = k[4][q];
-                if (o.substr(o.length - 4) === ".ppt" || o.substr(o.length - 5) === ".pptx" || o.substr(o.length - 5) === ".ppt/" || o.substr(o.length - 6) === ".pptx/") {
-                    o = "//view.officeapps.live.com/op/view.aspx?src=" + encodeURIComponent(o);
-                    k[4][q] = o;
-                }
-                else {
-                    let p = o.split("/");
-                    if (p[2] === "www.bilibili.com") {
-                        o = "//player.bilibili.com/player.html?aid=" + p[4].substr(2);
+                for (let q = 0; q < k[4].length; q++) {
+                    let o = k[4][q];
+                    if (o.substr(o.length - 4) === ".ppt" || o.substr(o.length - 5) === ".pptx" || o.substr(o.length - 5) === ".ppt/" || o.substr(o.length - 6) === ".pptx/") {
+                        o = "//view.officeapps.live.com/op/view.aspx?src=" + encodeURIComponent(o);
                         k[4][q] = o;
                     }
-                    if (p[2] === "www.youtube.com") {
-                        o = "//www.youtube.com/embed/" + p[3].substr(8);
-                        k[4][q] = o;
+                    else {
+                        let p = o.split("/");
+                        if (p[2] === "www.bilibili.com") {
+                            o = "//player.bilibili.com/player.html?aid=" + p[4].substr(2);
+                            k[4][q] = o;
+                        }
+                        if (p[2] === "www.youtube.com") {
+                            o = "//www.youtube.com/embed/" + p[3].substr(8);
+                            k[4][q] = o;
+                        }
                     }
                 }
             }
@@ -80,7 +82,7 @@ function showCoursePageResourceList(id) {
 
         if (s[t].substr(s[t].length - 4) === ".ppt" || s[t].substr(s[t].length - 5) === ".pptx" || s[t].substr(s[t].length - 5) === ".ppt/" || s[t].substr(s[t].length - 6) === ".pptx/")
             li.innerText = "PPTX";
-        else li.innerText = "VIDEO";
+        else if (s[t] !== "") li.innerText = "VIDEO";
 
         $("#pagecontent-list").append(li);
     }

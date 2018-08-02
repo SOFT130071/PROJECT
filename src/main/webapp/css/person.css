@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: rgb(10, 10, 50);
     color: aliceblue;
     margin: 0 5%;
 }
@@ -23,7 +23,7 @@ th {
 
 #newcrs input, #newcrs textarea {
     display: block;
-    background-color: dimgray;
+    background-color: rgb(40, 40, 100);
     width: 15em;
     margin: 0.5em;
 }
@@ -39,7 +39,7 @@ th {
     width: 40em;
     height: 13em;
 
-    background-color: dimgray;
+    background-color: rgb(40, 40, 100);
 }
 
 #figure input {

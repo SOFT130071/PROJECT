@@ -112,12 +112,12 @@ public class HomeworkDAOImpl implements HomeworkDAO {
             List<Map<String, String>> result = new ArrayList<>();
             while (re.next()) {
                 Map<String, String> map = new HashMap<>();
-                map.put("id", re.getString("id"));
-                map.put("beg_time", re.getString("beg_time"));
+                map.put("hid", re.getString("id"));
+                map.put("start_time", re.getString("beg_time"));
                 map.put("title", re.getString("title"));
                 map.put("content", re.getString("content"));
                 map.put("end_time", re.getString("end_time"));
-                map.put("c_id", re.getString("c_id"));
+                map.put("cid", re.getString("c_id"));
                 result.add(map);
             }
             return result;

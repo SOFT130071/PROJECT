@@ -105,7 +105,17 @@ public class CourseDAOImpl implements CourseDAO {
             ResultSet re = ps.executeQuery();
             SqlUtil.closeCon();
 
-            return setReturn(re);
+            List<Map<String, String>> result = new ArrayList<>();
+            while (re.next()) {
+                Map<String, String> map = new HashMap<>();
+                map.put("cid", re.getString("id"));
+                map.put("title", re.getString("title"));
+                map.put("teacher_id", re.getString("t_uid"));
+                map.put("pic_url", re.getString("img"));
+                map.put("content", re.getString("content"));
+                result.add(map);
+            }
+            return result;
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -163,7 +173,7 @@ public class CourseDAOImpl implements CourseDAO {
             List<Map<String, String>> result = new ArrayList<>();
             while (re.next()) {
                 Map<String, String> map = new HashMap<>();
-                map.put("cid", re.getString("cid"));
+                map.put("cid", re.getString("id"));
                 map.put("title", re.getString("title"));
                 result.add(map);
             }
@@ -203,6 +213,7 @@ public class CourseDAOImpl implements CourseDAO {
                     sql += " group by courses.id order by count(choose_course.s_id) " + c + ";";
                 else
                     sql += " where " + match.substring(2) + " group by courses.id order by count(choose_course.s_id) " + c + ";";
+                System.out.println(sql);
                 re = conn.prepareStatement(sql).executeQuery();
             }
             SqlUtil.closeCon();
@@ -222,10 +233,10 @@ public class CourseDAOImpl implements CourseDAO {
             List<Map<String, String>> result = new ArrayList<>();
             while (res.next()) {
                 Map<String, String> map = new HashMap<>();
-                map.put("id", res.getString("id"));
+                map.put("cid", res.getString("id"));
                 map.put("title", res.getString("title"));
                 map.put("nickname", res.getString("nickname"));
-                map.put("img", res.getString("img"));
+                map.put("pic_url", res.getString("img"));
                 map.put("content", res.getString("content"));
                 result.add(map);
             }

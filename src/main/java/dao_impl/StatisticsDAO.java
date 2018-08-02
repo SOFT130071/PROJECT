@@ -9,4 +9,6 @@ public interface StatisticsDAO {
     int delete(entity.Statistics statistics);
 
     List<Map<String, String>> infoList(entity.Statistics statistics);
+
+    List<Map<String, String>> infoList(String s_id, String c_id, String cp_id);
 }

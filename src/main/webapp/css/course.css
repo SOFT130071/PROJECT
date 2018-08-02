@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: rgb(10, 10, 50);
     color: aliceblue;
     margin: 0 5%;
 }
@@ -22,7 +22,7 @@ body {
 
 input, textarea {
     margin-bottom: 0.5em;
-    background-color: dimgray;
+    background-color: rgb(40, 40, 100);
     width: 100%;
 }
 
@@ -30,7 +30,7 @@ input, textarea {
     width: 20em;
     height: 100%;
     border-radius: 5px;
-    border: 1px solid dimgray;
+    border: 1px solid rgb(40, 40, 100);
     padding: 1em;
     overflow-y: auto;
 }

@@ -1,13 +1,13 @@
 body {
-    background-color: black;
+    background-color: rgb(10, 10, 50);
     color: aliceblue;
     text-align: center;
     margin: 0 10%;
 }
 
 input {
-    background-color: dimgrey;
-    border: 1px solid darkgrey;
+    background-color: rgb(40, 40, 100);
+    border: 1px solid darkblue;
     border-radius: 10px;
 }
 

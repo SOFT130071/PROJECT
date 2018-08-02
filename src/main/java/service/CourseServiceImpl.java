@@ -12,7 +12,7 @@ public class CourseServiceImpl implements CourseService {
     private CourseDAO courseDAO;
     private HomeworkSubmitDAO homeworkSubmitDAO;
     private CoursePageDAO coursePageDAO;
-    private ChooseCourseDAO course_tableDAO;
+    private ChooseCourseDAO chooseCourseDAO;
     private HomeworkDAO homeworkDAO;
     private StatisticsDAO statisticsDAO;
     private ResourceDAO resourceDAO;
@@ -22,7 +22,7 @@ public class CourseServiceImpl implements CourseService {
         courseDAO = DAOFactory.getCourseDAOInstance();
         homeworkSubmitDAO = DAOFactory.getHomeworkSubmitDAOInstance();
         coursePageDAO = DAOFactory.getCoursePageDAOInstance();
-        course_tableDAO = DAOFactory.getChooseCourseDAOInstance();
+        chooseCourseDAO = DAOFactory.getChooseCourseDAOInstance();
         homeworkDAO = DAOFactory.getHomeworkDAOInstance();
         statisticsDAO = DAOFactory.getStatisticsDAOInstance();
         resourceDAO = DAOFactory.getResourceDAOInstance();
@@ -32,7 +32,7 @@ public class CourseServiceImpl implements CourseService {
         courseDAO = DAOFactory.getCourseDAOInstance();
         homeworkSubmitDAO = DAOFactory.getHomeworkSubmitDAOInstance();
         coursePageDAO = DAOFactory.getCoursePageDAOInstance();
-        course_tableDAO = DAOFactory.getChooseCourseDAOInstance();
+        chooseCourseDAO = DAOFactory.getChooseCourseDAOInstance();
         homeworkDAO = DAOFactory.getHomeworkDAOInstance();
         statisticsDAO = DAOFactory.getStatisticsDAOInstance();
         resourceDAO = DAOFactory.getResourceDAOInstance();
@@ -103,10 +103,10 @@ public class CourseServiceImpl implements CourseService {
         for (int i = 0; i < list.size(); i++) {
             map = list.get(i);
             JsonObject j = new JsonObject();
-            j.addProperty("cid", map.get("id"));
+            j.addProperty("cid", map.get("cid"));
             j.addProperty("title", map.get("title"));
-            j.addProperty("teacher_id", map.get("t_uid"));
-            j.addProperty("pic_url", map.get("img"));
+            j.addProperty("teacher_id", map.get("teacher_id"));
+            j.addProperty("pic_url", map.get("pic_url"));
             j.addProperty("content", map.get("content"));
             jsonObject.add(i + "", j);
         }
@@ -126,7 +126,7 @@ public class CourseServiceImpl implements CourseService {
         for (int i = 0; i < list.size(); i++) {
             map = list.get(i);
             JsonObject j = new JsonObject();
-            j.addProperty("cid", map.get("c_id"));
+            j.addProperty("cid", map.get("cid"));
             j.addProperty("title", map.get("title"));
             jsonObject.add(i + "", j);
         }
@@ -146,10 +146,10 @@ public class CourseServiceImpl implements CourseService {
         if (list == null) return jsonObject;
 
         for (Map<String, String> map : list) {
-            jsonObject.addProperty("cid", map.get("id"));
+            jsonObject.addProperty("cid", map.get("cid"));
             jsonObject.addProperty("title", map.get("title"));
-            jsonObject.addProperty("teacher_id", map.get("t_uid"));
-            jsonObject.addProperty("pic_url", map.get("img"));
+            jsonObject.addProperty("teacher_id", map.get("teacher_id"));
+            jsonObject.addProperty("pic_url", map.get("pic_url"));
             jsonObject.addProperty("content", map.get("content"));
         }
 
@@ -234,9 +234,9 @@ public class CourseServiceImpl implements CourseService {
     @Override
     @SuppressWarnings("unchecked")
     public JsonObject getCoursePageInfo() {
-        CoursePage course = new CoursePage();
-        course.setId(jsonObject.get("cid").getAsString());
-        List<CoursePage> list = coursePageDAO.infoList(course);
+        CoursePage coursePage = new CoursePage();
+        coursePage.setC_id(jsonObject.get("cid").getAsString());
+        List<CoursePage> list = coursePageDAO.infoList(coursePage);
 
         JsonObject jsonObject = new JsonObject();
         if (list == null) return jsonObject;
@@ -317,9 +317,9 @@ public class CourseServiceImpl implements CourseService {
         for (int i = 0; i < list.size(); i++) {
             map = list.get(i);
             JsonObject j = new JsonObject();
-            j.addProperty("hid", map.get("id"));
-            j.addProperty("cid", map.get("c_id"));
-            j.addProperty("start_time", map.get("beg_time"));
+            j.addProperty("hid", map.get("hid"));
+            j.addProperty("cid", map.get("cid"));
+            j.addProperty("start_time", map.get("start_time"));
             j.addProperty("title", map.get("title"));
             j.addProperty("content", map.get("content"));
             j.addProperty("end_time", map.get("end_time"));
@@ -334,7 +334,7 @@ public class CourseServiceImpl implements CourseService {
         String cid = jsonObject.get("cid").getAsString();
         String uid = jsonObject.get("uid").getAsString();
 
-        return course_tableDAO.append(new ChooseCourse(cid, uid)) == -1 ? 0x020101 : 0x020100;
+        return chooseCourseDAO.append(new ChooseCourse(cid, uid)) == -1 ? 0x020101 : 0x020100;
     }
 
     @Override
@@ -345,7 +345,7 @@ public class CourseServiceImpl implements CourseService {
         if (jsonObject.has("uid"))
             c.setS_id(jsonObject.get("uid").getAsString());
 
-        return course_tableDAO.delete(c) == -1 ? 0x020101 : 0x020101;
+        return chooseCourseDAO.delete(c) == -1 ? 0x020101 : 0x020101;
     }
 
     @Override
@@ -355,7 +355,7 @@ public class CourseServiceImpl implements CourseService {
             courseTableBean.setC_id(jsonObject.get("cid").getAsString());
         if (jsonObject.has("uid"))
             courseTableBean.setS_id(jsonObject.get("uid").getAsString());
-        List<Map<String, String>> list = course_tableDAO.infoList(courseTableBean);
+        List<Map<String, String>> list = chooseCourseDAO.infoList(courseTableBean);
 
         JsonObject jsonObject = new JsonObject();
 
@@ -437,7 +437,7 @@ public class CourseServiceImpl implements CourseService {
         String cid = jsonObject.get("cid").getAsString();
         String uid = jsonObject.get("uid").getAsString();
         String pid = jsonObject.get("pid").getAsString();
-        List<Map<String, String>> list = statisticsDAO.infoList(new Statistics(uid, "", pid));
+        List<Map<String, String>> list = statisticsDAO.infoList(uid, cid, pid);
         if (list == null || list.size() == 0)
             return statisticsDAO.append(new Statistics(uid, cid, pid)) == -1 ? 0x020101 : 0x020100;
         return 0x020101;
@@ -471,9 +471,9 @@ public class CourseServiceImpl implements CourseService {
         for (int i = 0; i < list.size(); i++) {
             map = list.get(i);
             JsonObject j = new JsonObject();
-            j.addProperty("uid", map.get("s_id"));
+            j.addProperty("uid", map.get("uid"));
             j.addProperty("nickname", map.get("nickname"));
-            j.addProperty("count", map.get("count(cp_id)"));
+            j.addProperty("count", map.get("count(pid)"));
             jsonObject.add((i + 1) + "", j);
         }
 
@@ -543,7 +543,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public JsonObject getTopHotCourse() {
-        List<Map<String, String>> list = course_tableDAO.infoList(new ChooseCourse());
+        List<Map<String, String>> list = chooseCourseDAO.infoList(new ChooseCourse());
         JsonObject jsonObject = new JsonObject();
         if (list == null) return jsonObject;
         Map<String, Integer> counter = new HashMap<>();
@@ -574,10 +574,10 @@ public class CourseServiceImpl implements CourseService {
                 continue;
             Map<String, String> map = course.get(0);
             JsonObject j = new JsonObject();
-            j.addProperty("cid", map.get("id"));
+            j.addProperty("cid", map.get("cid"));
             j.addProperty("title", map.get("title"));
-            j.addProperty("teacher_id", map.get("t_uid"));
-            j.addProperty("pic_url", map.get("img"));
+            j.addProperty("teacher_id", map.get("teacher_id"));
+            j.addProperty("pic_url", map.get("pic_url"));
             j.addProperty("content", map.get("content"));
             jsonObject.add(k + "", j);
         }
@@ -598,10 +598,10 @@ public class CourseServiceImpl implements CourseService {
         for (int k = 0; k < size; i--, k++) {
             Map<String, String> map = list.get(i);
             JsonObject j = new JsonObject();
-            j.addProperty("cid", map.get("id"));
+            j.addProperty("cid", map.get("cid"));
             j.addProperty("title", map.get("title"));
-            j.addProperty("teacher_id", map.get("t_uid"));
-            j.addProperty("pic_url", map.get("img"));
+            j.addProperty("teacher_id", map.get("teacher_id"));
+            j.addProperty("pic_url", map.get("pic_url"));
             j.addProperty("content", map.get("content"));
             jsonObject.add(k + "", j);
         }

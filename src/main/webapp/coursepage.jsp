@@ -60,7 +60,7 @@
             if (sessionStorage.getItem("username") === "" || sessionStorage.getItem("username") === null)
                 $("#nav-jsp-user").html("<a style=\"color: lightcyan\" href=\"login.jsp\">登录</a>或<a style=\"color: lightcyan\" href=\"register.jsp\">注册</a>");
             else
-                $("#nav-jsp-user").html("<a style=\"color: lightcyan\" href=\"\">" + sessionStorage.getItem("username") + "</a>，<a style=\"color: lightcyan\" href=\"\" onclick=\"logout()\">登出</a>");
+                $("#nav-jsp-user").html("<a style=\"color: lightcyan\" href=\"person.jsp\">" + sessionStorage.getItem("username") + "</a>，<a style=\"color: lightcyan\" href=\"\" onclick=\"logout()\">登出</a>");
         </script>
     </div>
     <div class="col-lg-4">

@@ -450,7 +450,6 @@ function titleclick() {
 }
 
 function titlesub() {
-    let id = cid;
     let title = $("#titleclick1").val();
     let pic_url = $("#titleclick2").val();
     let content = $("#titleclick3").val();
