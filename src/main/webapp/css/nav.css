@@ -1,0 +1,39 @@
+#nav-top-tab {
+    position: fixed;
+    top: 3.61em;
+    left: 18.9em;
+    height: 2em;
+    width: 4em;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: dimgrey;
+    opacity: 0.9;
+    display: inline-block;
+    text-align: center;
+}
+
+#nav-top {
+    color: aliceblue;
+    font-size: large;
+    padding-top: 0.6em;
+    padding-left: 1.1em;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: dimgrey;
+    opacity: 0.9;
+    height: 2.8em;
+}
+
+#search-button span, #search-button {
+    display: inline;
+}
+
+#search-text {
+    height: 2em;
+}
+
+#div-nav-search, #nav-input-group-btn {
+    display: inline-block;
+    width: 30%;
+}
