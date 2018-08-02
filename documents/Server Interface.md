@@ -29,7 +29,6 @@
 |nickname|显示用的|
 |email|邮箱名|
 |password|记得加密！！！|
-|logged|是否登录|
 
 ### 课程目录 courses
 |名称|描述|
