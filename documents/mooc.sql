@@ -57,8 +57,8 @@ DROP TABLE IF EXISTS `course_pages`;
 CREATE TABLE `course_pages` (
   `id`      int(10) NOT NULL AUTO_INCREMENT,
   `c_id`    int(20) NOT NULL,
-  `number`  text NOT NULL,
-  `title`   text NOT NULL,
+  `number`  text    NOT NULL,
+  `title`   text    NOT NULL,
   `link`    text,
   `content` text,
   PRIMARY KEY (`id`),
